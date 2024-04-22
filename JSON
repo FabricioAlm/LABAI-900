@@ -1,0 +1,56 @@
+Testar o serviço implantado
+Agora você pode testar seu serviço implantado.
+
+No estúdio Azure Machine Learning, no menu esquerdo, selecione Endpoints e abra o ponto final em tempo real de previsão de alugueres .
+
+Na página do endpoint em tempo real de previsão de aluguel, visualize a guia Teste .
+
+No painel Dados de entrada para testar o endpoint , substitua o modelo JSON pelos seguintes dados de entrada:
+
+Código
+ {
+   "Inputs": { 
+     "data": [
+       {
+         "day": 1,
+         "mnth": 1,   
+         "year": 2022,
+         "season": 2,
+         "holiday": 0,
+         "weekday": 1,
+         "workingday": 1,
+         "weathersit": 2, 
+         "temp": 0.3, 
+         "atemp": 0.3,
+         "hum": 0.3,
+         "windspeed": 0.3 
+       }
+     ]    
+   },   
+   "GlobalParameters": 1.0
+ }
+Clique no botão Testar .
+
+Revise os resultados do teste, que incluem um número previsto de aluguéis com base nos recursos de entrada - semelhante a este:
+
+Código
+ {
+   "Results": [
+     444.27799000000000
+   ]
+ }
+O painel de teste pegou os dados de entrada e usou o modelo treinado para retornar o número previsto de aluguéis.
+
+Vamos revisar o que você fez. Você usou um conjunto de dados históricos de aluguel de bicicletas para treinar um modelo. O modelo prevê o número de alugueres de bicicletas esperados num determinado dia, com base em características sazonais e meteorológicas .
+
+Limpar
+O serviço web que você criou está hospedado em uma instância de contêiner do Azure . Se não pretender experimentá-lo ainda mais, deverá eliminar o ponto final para evitar acumular utilização desnecessária do Azure.
+
+No estúdio Azure Machine Learning , na guia Endpoints , selecione o ponto de extremidade de previsão de aluguel . Em seguida, selecione Excluir e confirme que deseja excluir o endpoint.
+
+Excluir sua computação garante que sua assinatura não será cobrada por recursos de computação. No entanto, será cobrada uma pequena quantia pelo armazenamento de dados, desde que o espaço de trabalho do Azure Machine Learning exista na sua assinatura. Se tiver terminado de explorar o Azure Machine Learning, pode eliminar o espaço de trabalho Azure Machine Learning e os recursos associados.
+
+Para excluir seu espaço de trabalho:
+
+No portal Azure , na página Grupos de recursos , abra o grupo de recursos que especificou ao criar o seu espaço de trabalho Azure Machine Learning.
+Clique em Excluir grupo de recursos , digite o nome do grupo de recursos para confirmar que deseja excluí-lo e selecione Excluir .
